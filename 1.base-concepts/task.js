@@ -17,7 +17,6 @@ function solveEquation(a, b, c) {
 
 
 
-
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
   if (isNaN(percent) === true || isNaN(contribution) === true || isNaN(amount) === true) {
     return(false);
