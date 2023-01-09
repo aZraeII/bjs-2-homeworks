@@ -1,4 +1,3 @@
-"use strict"
 function Student(name, gender, age) {
   this.name = name;
   this.gender = gender;
@@ -6,17 +5,22 @@ function Student(name, gender, age) {
   this.marks = [];
   }
 
+let student = new Student("Василиса", "женский", 19);
+console.log(student)
 Student.prototype.setSubject = function (subjectName) {
     student.setSubject = subjectName;
-    return student.setSubject
 }
 
+student.setSubject("Algebra");
+console.log(student)
 Student.prototype.addMarks = function (...marks) {
   if('marks' in student === true) {
     student.marks = [...marks];
   }
 }
 
+student.addMarks(4, 5, 4, 5);
+console.log(student)
 Student.prototype.getAverage = function () {
   if('marks' in student === true && student.marks.length > 0) {
     let sum = student.marks.reduce((acc, item) => acc + item, 0);
@@ -26,8 +30,14 @@ Student.prototype.getAverage = function () {
   }
 }
 
+console.log(student.getAverage())
+
 Student.prototype.exclude = function (reason) {
   delete student.marks;
-  delete student.subject;
+  delete student.setSubject;
   this.excluded = reason;
 }
+
+student.exclude('плохая учёба')
+console.log(student)
+console.log(student.getAverage())
