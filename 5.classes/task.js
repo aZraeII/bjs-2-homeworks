@@ -9,13 +9,19 @@ class PrintEditionItem{
 
     fix(){
         this.state = this.state * 1.5;
-        if(this.state >= 100){
-        return this.state = 100;
-        }else if(this.state <= 0){
-        return this.state = 0;
+    }
+
+    set state(state){
+        if(state >= 100){
+            return this._state = 100;
+        }else if(state <= 0){
+            return this._state = 0;
         }else{
-        return this.state
+            return this._state = state;
         }
+    }
+    get state(){
+        return this._state;
     }
 }
 
@@ -54,17 +60,3 @@ class DetectiveBook extends Book{
         this.type = "detective";
     }   
 }
-
-
-const picknick = new FantasticBook(
-  "Аркадий и Борис Стругацкие",
-  "Пикник на обочине",
-  1972,
-  168
-);
-
-console.log(picknick.author); //"Аркадий и Борис Стругацкие"
-picknick.state = 10;
-console.log(picknick.state); //10
-picknick.fix();
-console.log(picknick.state); //15
